@@ -5,23 +5,31 @@
 #include <string>
 #include <limits>
 
+#include "clsString.h"
+
 using namespace std;
 
 namespace read
 {
-
   template <typename inputFlow>
   void handleInput(inputFlow &input)
   {
-    if constexpr (is_same_v<inputFlow, string>)
+    cin >> input;
+    if (cin.good())
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  }
+
+  template <>
+  void handleInput<string>(string &input)
+  {
+    do
     {
       getline(cin, input);
-    }
-    else
-    {
-      cin >> input;
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
+      if (clsString::trim(input).empty())
+      {
+        cout << "Input cannot be empty. Please try again: ";
+      }
+    } while (clsString::trim(input).empty());
   }
 
   template <typename inputType>
@@ -29,45 +37,49 @@ namespace read
   {
     inputType input;
 
-    cout << message << endl;
-
-    read::handleInput<inputType>(input);
-
-    while (cin.fail())
+    while (true)
     {
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-      cout << "Invalid Input, " << message << endl;
-
+      cout << message << endl;
       read::handleInput<inputType>(input);
-    }
 
-    return input;
-  };
+      if (cin.fail())
+      {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid Input. Please try again." << endl;
+      }
+      else
+      {
+        return input;
+      }
+    }
+  }
 
   template <typename typeInRange>
   typeInRange numInRange(string message, typeInRange from, typeInRange to)
   {
     typeInRange num;
 
-    cout << message << endl;
-    cin >> num;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    while (num < from || num > to || cin.fail())
+    while (true)
     {
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-      cout << "Invalid Input, " << message << endl;
+      cout << message << " (" << from << " to " << to << "): ";
       cin >> num;
-    }
 
-    return num;
+      if (cin.fail() || num < from || num > to)
+      {
+        cout << "Invalid! Please enter between " << from << " and " << to << ".\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      }
+      else
+      {
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return num; // Good input!
+      }
+    }
   }
 
   char yesOrNo(string message);
 }
 
-#endif
+#endif // READ_H

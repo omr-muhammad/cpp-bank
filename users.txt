@@ -1,0 +1,5 @@
+John#//#Doe#//#john.doe@example.com#//#1234567890#//#johndoe#//#Lqpuv#//#admin
+Jane#//#Smith#//#jane.smith@example.com#//#0987654321#//#janesmith#//#Nqswx#//#user
+Alice#//#Johnson#//#alice.johnson@example.com#//#1122334455#//#alicej#//#Nqswx#//#admin
+Bob#//#Brown#//#bob.brown@example.com#//#5566778899#//#bobbrown#//#Nqswx#//#user
+Charlie#//#Davis#//#charlie.davis@example.com#//#6677889900#//#charlied#//#Nqswx#//#admin
