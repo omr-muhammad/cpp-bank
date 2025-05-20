@@ -12,7 +12,7 @@ using namespace std;
 class utils
 {
 private:
-  string txtOnesNumbers(short num)
+  static string _txtOnesNumbers(short num)
   {
     switch (num)
     {
@@ -59,7 +59,7 @@ private:
     }
   }
 
-  string txtTensNumbers(short num)
+  static string _txtTensNumbers(short num)
   {
     switch (num)
     {
@@ -84,7 +84,7 @@ private:
     }
   }
 
-  long long readNum()
+  static long long _readNum()
   {
     long long num = 0;
 
@@ -97,29 +97,29 @@ private:
     return num;
   }
 
-  string chunkToTxt(short chunk)
+  static string _chunkToTxt(short chunk)
   {
     string txt;
     if (chunk >= 100)
     {
-      txt = txtOnesNumbers(chunk / 100) + "Hundred ";
+      txt = _txtOnesNumbers(chunk / 100) + "Hundred ";
       chunk %= 100;
     }
 
     if (chunk >= 20)
     {
-      txt += txtTensNumbers(chunk / 10);
+      txt += _txtTensNumbers(chunk / 10);
       chunk %= 10;
     }
 
     if (chunk > 0)
-      txt += txtOnesNumbers(chunk);
+      txt += _txtOnesNumbers(chunk);
 
     return txt;
   }
 
 public:
-  string convertNumToReadableTxt(long long num)
+  static string convertNumToReadableTxt(long long num)
   {
     if (num == 0)
       return "Zero";
@@ -133,7 +133,7 @@ public:
       int chunk = num % 1000;
 
       if (chunk != 0)
-        txt = chunkToTxt(chunk) + units[unitIdx] + txt;
+        txt = _chunkToTxt(chunk) + units[unitIdx] + txt;
 
       num /= 1000;
       unitIdx++;

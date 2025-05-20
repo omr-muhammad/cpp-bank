@@ -164,7 +164,7 @@ public:
     return _saveUsers();
   }
 
-  bool updateClient()
+  bool updateUser()
   {
     for (clsUser &user : _users)
       if (user.getUsername() == this->getUsername())
