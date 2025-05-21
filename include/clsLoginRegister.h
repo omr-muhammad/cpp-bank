@@ -8,8 +8,8 @@
 #include <vector>
 #include <fstream>
 
-#include "clsDate.h"
-#include "global.h"
+#include "./clsDate.h"
+#include "./global.h"
 
 using namespace std;
 
@@ -40,6 +40,8 @@ private:
     line += loginRegister._loggedUsername + delimiter;
     line += loginRegister._loggedUserPassword + delimiter;
     line += loginRegister._loggedUserPermissions;
+
+    return line;
   }
 
 public:

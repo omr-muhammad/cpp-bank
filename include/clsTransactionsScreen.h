@@ -6,10 +6,12 @@
 #include <iostream>
 #include <iomanip>
 
-#include "read.h"
-#include "clsScreen.h"
-#include "clsClientUI.h"
-#include "clsTransferLogsList.h"
+#include "./read.h"
+#include "./clsScreen.h"
+#include "./clsClientUI.h"
+#include "./clsTransferLogsList.h"
+
+using namespace std;
 
 using namespace std;
 

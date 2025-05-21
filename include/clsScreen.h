@@ -6,7 +6,7 @@
 #include <iostream>
 #include <ctime>
 
-#include "global.h"
+#include "./global.h"
 
 using namespace std;
 
@@ -29,9 +29,9 @@ protected:
       cout << "\n\t\t\t\t\t  " << subTitle;
     }
     cout << "\n\t\t\t\t\t______________________________________\n\n";
-    cout << "\n\n";
-    cout << "User: " << username << endl;
-    cout << "Date: " << now->tm_mday << '/' << (now->tm_mon + 1) << '/' << (now->tm_year + 1900) << endl;
+    cout << "\n";
+    cout << "\t\t\t\t\tUser: " << username << endl;
+    cout << "\t\t\t\t\tDate: " << now->tm_mday << '/' << (now->tm_mon + 1) << '/' << (now->tm_year + 1900) << endl;
   }
 };
 

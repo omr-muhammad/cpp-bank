@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "interfaceCommunication.h"
+#include "./interfaceCommunication.h"
 
 using namespace std;
 

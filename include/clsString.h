@@ -25,7 +25,7 @@ public:
     {
       if (end != start) // Avoid empty substrings for consecutive delimiters
         words.push_back(text.substr(start, end - start));
-      start = end + 1;
+      start = end + delimiter.length();
     }
     if (start < text.length()) // Add the last word if not empty
       words.push_back(text.substr(start));

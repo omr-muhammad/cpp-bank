@@ -9,8 +9,8 @@
 #include <vector>
 #include <iomanip>
 
-#include "clsScreen.h"
-#include "clsLoginRegister.h"
+#include "./clsScreen.h"
+#include "./clsLoginRegister.h"
 
 using namespace std;
 

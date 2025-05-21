@@ -1,9 +1,13 @@
 #include <iostream>
+#include <string>
+#include <iomanip>
 
-using namespace std;
+#include "./include/clsBankApp.h"
 
 int main()
 {
-  cout << "Welcome to the program!" << endl;
+  // clsBankApp::run() will handle the login process and load data
+  clsBankApp::run();
+
   return 0;
 }

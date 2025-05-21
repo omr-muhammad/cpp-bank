@@ -9,13 +9,15 @@
 #include <vector>
 #include <cmath>
 
-#include "clsScreen.h"
-#include "clsUser.h"
-#include "clsString.h"
-#include "utils.h"
-#include "read.h"
-#include "clsClient.h"
-#include "clsClientUI.h"
+#include "./clsScreen.h"
+#include "./clsUser.h"
+#include "./clsString.h"
+#include "./utils.h"
+#include "./read.h"
+#include "./clsClient.h"
+#include "./clsClientUI.h"
+
+using namespace std;
 
 class clsUserUI : protected clsScreen
 {

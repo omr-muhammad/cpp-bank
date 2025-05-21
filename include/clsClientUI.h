@@ -8,11 +8,13 @@
 #include <iomanip>
 #include <vector>
 
-#include "clsScreen.h"
-#include "clsClient.h"
-#include "clsString.h"
-#include "utils.h"
-#include "read.h"
+#include "./clsScreen.h"
+#include "./clsClient.h"
+#include "./clsString.h"
+#include "./utils.h"
+#include "./read.h"
+
+using namespace std;
 
 class clsClientUI : protected clsScreen
 {
@@ -76,7 +78,7 @@ private:
   static clsClient *_findClientUI()
   {
     string accountNumber = "";
-    clsClient *client;
+    clsClient *client = nullptr;
 
     while (true)
     {
@@ -93,6 +95,8 @@ private:
       else
         break;
     }
+
+    return client;
   }
 
   static void _print(const clsClient &client)

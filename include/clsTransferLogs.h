@@ -8,10 +8,11 @@
 #include <vector>
 #include <fstream>
 
-#include "clsDate.h"
-#include "global.h"
-#include "clsScreen.h"
-#include "clsClient.h"
+#include "./clsDate.h"
+#include "./global.h"
+#include "./clsScreen.h"
+
+using namespace std;
 
 class clsTransferLogs : protected clsScreen
 {
@@ -76,10 +77,10 @@ public:
     }
   }
 
-  static bool writeNewTransferLog(clsClient *fromCln, clsClient *toCln, double amount, string username)
+  static bool writeNewTransferLog(string fromAcc, string toAcc, double fromBlc, double toBlc, double amount, string username)
   {
     clsDate date;
-    clsTransferLogs newTransferLog(date.loggedDate(), fromCln->getAccountNumber(), toCln->getAccountNumber(), to_string(fromCln->getBalance()), to_string(toCln->getBalance()), to_string(amount), username);
+    clsTransferLogs newTransferLog(date.loggedDate(), fromAcc, toAcc, to_string(fromBlc), to_string(toBlc), to_string(amount), username);
 
     fstream file(_transferLogsFile, ios::app);
 

@@ -5,14 +5,14 @@
 #include <string>
 #include <limits>
 
-#include "clsString.h"
+#include "./clsString.h"
 
 using namespace std;
 
 namespace read
 {
   template <typename inputFlow>
-  void handleInput(inputFlow &input)
+  inline void handleInput(inputFlow &input)
   {
     cin >> input;
     if (cin.good())
@@ -20,7 +20,7 @@ namespace read
   }
 
   template <>
-  void handleInput<string>(string &input)
+  inline void handleInput<string>(string &input)
   {
     do
     {
@@ -33,7 +33,7 @@ namespace read
   }
 
   template <typename inputType>
-  inputType validatedUserInput(string message)
+  inline inputType validatedUserInput(string message)
   {
     inputType input;
 
@@ -56,7 +56,7 @@ namespace read
   }
 
   template <typename typeInRange>
-  typeInRange numInRange(string message, typeInRange from, typeInRange to)
+  inline typeInRange numInRange(string message, typeInRange from, typeInRange to)
   {
     typeInRange num;
 

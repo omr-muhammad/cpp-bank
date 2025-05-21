@@ -3,7 +3,7 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include "clsUser.h"
+#include "./clsUser.h"
 
 clsUser *currentUser = nullptr;
 int failedLoginAttempts = 0;

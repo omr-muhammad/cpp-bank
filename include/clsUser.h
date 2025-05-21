@@ -10,9 +10,11 @@
 #include <algorithm>
 #include <math.h>
 
-#include "clsPerson.h"
-#include "clsString.h"
-#include "global.h"
+#include "./clsPerson.h"
+#include "./clsString.h"
+#include "./global.h"
+
+using namespace std;
 
 class clsUser : public clsPerson
 {
@@ -26,6 +28,8 @@ private:
   static clsUser _convertToUser(string &line, string delimiter = "#//#")
   {
     vector<string> vUsersData = clsString::split(line, delimiter);
+
+    cout << "vUsersData.size() = " << vUsersData.size() << endl;
 
     string firstname = vUsersData[0];
     string lastname = vUsersData[1];

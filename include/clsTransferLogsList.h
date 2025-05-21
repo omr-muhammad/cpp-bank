@@ -8,8 +8,10 @@
 #include <vector>
 #include <iomanip>
 
-#include "clsScreen.h"
-#include "clsTransferLogs.h"
+#include "./clsScreen.h"
+#include "./clsTransferLogs.h"
+
+using namespace std;
 
 class clsTransferLogsList : protected clsScreen
 {

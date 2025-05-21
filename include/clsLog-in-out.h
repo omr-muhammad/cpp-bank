@@ -8,11 +8,11 @@
 #include <vector>
 #include <fstream>
 
-#include "clsScreen.h"
-#include "clsUser.h"
-#include "global.h"
-#include "clsMainScreen.h"
-#include "clsLoginRegister.h"
+#include "./clsScreen.h"
+#include "./clsUser.h"
+#include "./global.h"
+#include "./clsMainScreen.h"
+#include "./clsLoginRegister.h"
 
 using namespace std;
 
@@ -53,18 +53,19 @@ public:
         break;
       else
       {
-        cout << "Invalid Username/Password!\n";
+        cout << "\n\nInvalid Username/Password!\n";
         failedLoginAttempts++;
-        cout << "You have " << 3 - failedLoginAttempts << " attempts left.\n";
+        cout << "You have " << 3 - failedLoginAttempts << " attempts left.\n\n";
+
+        if (failedLoginAttempts >= 3)
+        {
+          cout << "\n\nYou have been locked out of the system after 3 failed attempts.\n";
+          return;
+        }
       }
     } while (true);
 
     clsMainScreen::showMainMenu();
-  }
-
-  static void logoutScreen()
-  {
-    currentUser = nullptr;
   }
 };
 

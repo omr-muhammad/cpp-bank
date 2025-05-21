@@ -10,11 +10,11 @@
 #include <algorithm>
 
 // internal includes
-#include "clsPerson.h"
-#include "clsString.h"
-#include "clsTransferLogs.h"
-#include "utils.h"
-#include "read.h"
+#include "./clsPerson.h"
+#include "./clsString.h"
+#include "./clsTransferLogs.h"
+#include "./utils.h"
+#include "./read.h"
 
 using namespace std;
 
@@ -30,6 +30,9 @@ private:
   static clsClient _convertToClient(string &line, string delimiter = "#//#")
   {
     vector<string> vClientData = clsString::split(line, delimiter);
+
+    cout << "vClientData: " << vClientData.size() << endl;
+    cout << vClientData[6] << endl;
 
     return clsClient(
         vClientData[0], vClientData[1], vClientData[2], vClientData[3],
@@ -192,7 +195,7 @@ public:
 
   bool transfer(clsClient *toClient, double amount)
   {
-    return this->withdraw(amount) && toClient->deposite(amount) && clsTransferLogs::writeNewTransferLog(this, toClient, amount, currentUser->getUsername());
+    return this->withdraw(amount) && toClient->deposite(amount) && clsTransferLogs::writeNewTransferLog(this->getAccountNumber(), toClient->getAccountNumber(), this->getBalance(), toClient->getBalance(), amount, currentUser->getUsername());
   }
 
   static double totalBalances()

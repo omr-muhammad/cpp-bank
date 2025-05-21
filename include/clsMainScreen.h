@@ -6,13 +6,14 @@
 #include <iostream>
 #include <iomanip>
 
-#include "read.h"
-#include "clsScreen.h"
-#include "clsClientUI.h"
-#include "clsTransactionsScreen.h"
-#include "clsLog-in-out.h"
-#include "clsUser.h"
-#include "clsLoginRegisterUI.h"
+#include "./read.h"
+#include "./clsScreen.h"
+#include "./clsClientUI.h"
+#include "./clsTransactionsScreen.h"
+#include "./clsUser.h"
+#include "./clsLoginRegisterUI.h"
+
+using namespace std;
 
 class clsMainScreen : protected clsScreen
 {
@@ -86,7 +87,8 @@ private:
 
   static void _logout()
   {
-    clsLogInOut::logoutScreen();
+    currentUser = nullptr;
+    failedLoginAttempts = 0;
   }
 
   static void _perfromMainMenuOption(enMainMenueOptions mainMenueOption)
