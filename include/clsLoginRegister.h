@@ -38,7 +38,7 @@ private:
     string line = "";
     line += loginRegister._loggedDate + delimiter;
     line += loginRegister._loggedUsername + delimiter;
-    line += loginRegister._loggedUserPassword + delimiter;
+    line += clsString::encryptText(loginRegister._loggedUserPassword) + delimiter;
     line += loginRegister._loggedUserPermissions;
 
     return line;
@@ -65,6 +65,14 @@ public:
     _loginRegister.clear();
 
     ifstream file(_loginRegisterFile);
+
+    // Check if the file is empty
+    if (file.peek() == ifstream::traits_type::eof())
+    {
+      file.close();
+      return;
+    }
+
     if (file.is_open())
     {
       string line;
@@ -101,6 +109,6 @@ public:
   }
 };
 
-const string clsLoginRegister::_loginRegisterFile = "logs.txt";
+const string clsLoginRegister::_loginRegisterFile = "logins.txt";
 
 #endif // CLSLOGIN_REGISTER_H

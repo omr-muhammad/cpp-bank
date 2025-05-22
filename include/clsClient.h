@@ -31,12 +31,23 @@ private:
   {
     vector<string> vClientData = clsString::split(line, delimiter);
 
-    cout << "vClientData: " << vClientData.size() << endl;
-    cout << vClientData[6] << endl;
+    if (vClientData.size() != 7)
+    {
+      cout << "Error: Invalid client data format." << endl;
+      return clsClient();
+    }
+
+    string firstname = vClientData[0];
+    string lastname = vClientData[1];
+    string email = vClientData[2];
+    string phone = vClientData[3];
+    string accountNumber = vClientData[4];
+    string pinCode = vClientData[5];
+    double balance = stod(vClientData[6]);
 
     return clsClient(
-        vClientData[0], vClientData[1], vClientData[2], vClientData[3],
-        vClientData[4], vClientData[5], stod(vClientData[6]));
+        firstname, lastname, email, phone,
+        accountNumber, pinCode, balance);
   }
 
   static string _convertToLine(clsClient &client, string delimiter = "#//#")
@@ -97,6 +108,14 @@ public:
     _clients.clear();
 
     ifstream file(_clientsFile);
+
+    // Check if the file is empty
+    if (file.peek() == ifstream::traits_type::eof())
+    {
+      file.close();
+      return;
+    }
+
     if (file.is_open())
     {
       string line;

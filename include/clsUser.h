@@ -29,8 +29,6 @@ private:
   {
     vector<string> vUsersData = clsString::split(line, delimiter);
 
-    cout << "vUsersData.size() = " << vUsersData.size() << endl;
-
     string firstname = vUsersData[0];
     string lastname = vUsersData[1];
     string email = vUsersData[2];
@@ -101,6 +99,14 @@ public:
     _users.clear();
 
     ifstream file(_usersFile);
+
+    // Check if the file is empty
+    if (file.peek() == ifstream::traits_type::eof())
+    {
+      file.close();
+      return;
+    }
+
     if (file.is_open())
     {
       string line;

@@ -10,6 +10,7 @@
 #include <iomanip>
 
 #include "./clsScreen.h"
+#include "./clsString.h"
 #include "./clsLoginRegister.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ private:
   {
     cout << setw(8) << left << "" << "| " << setw(35) << left << log.getLoggedDate();
     cout << "| " << setw(20) << left << log.getLoggedUsername();
-    cout << "| " << setw(20) << left << log.getLoggedUserPassword();
+    cout << "| " << setw(20) << left << clsString::encryptText(log.getLoggedUserPassword());
     cout << "| " << setw(10) << left << log.getLoggedUserPermissions();
     cout << endl;
   }
