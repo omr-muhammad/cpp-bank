@@ -5,7 +5,7 @@
 
 #include "./clsUser.h"
 
-clsUser *currentUser = nullptr;
-int failedLoginAttempts = 0;
+extern clsUser currentUser;
+extern int failedLoginAttempts;
 
 #endif // GLOBAL_H

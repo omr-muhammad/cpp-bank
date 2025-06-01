@@ -1,0 +1,41 @@
+# Ignore build files
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.so
+*.a
+
+# Ignore temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+
+# Ignore IDE-specific files
+.vscode/
+*.code-workspace
+
+# Ignore system files
+Thumbs.db
+.DS_Store
+
+# Ignore user-specific files
+*.user
+*.session
+
+# Ignore generated files
+*.out
+*.class
+
+# Ignore debug files
+*.pdb
+*.idb
+
+# Ignore specific project files
+users.txt
+clients.txt
+logins.txt
+transfer-logs.txt

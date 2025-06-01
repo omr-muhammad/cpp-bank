@@ -7,7 +7,7 @@
 #include <string>
 #include <iomanip>
 
-#include "./clsLog-in-out.h"
+#include "./clsLogin.h"
 #include "./global.h"
 #include "./clsUser.h"
 #include "./clsClient.h"
@@ -18,26 +18,28 @@ using namespace std;
 class clsBankApp
 {
 private:
-  static void _loadData()
-  {
-    // Load all data at startup
-    clsUser::loadUsers();
-    clsClient::loadClients();
-    clsLoginRegister::loadLoginRegister();
-  }
-
-public:
-  static void run()
-  {
-    _loadData();
-
-    while (failedLoginAttempts < 3)
+    static void _loadData()
     {
-      clsLogInOut::loginScreen();
+        // Load all data at startup
+        clsUser::loadUsers();
+        clsClient::loadClients();
+        clsLoginRegister::loadLoginRegister();
     }
 
-    // std::cout << "\n\nYou have been locked out of the system after 3 failed attempts.\n";
-  }
+public:
+    static void run()
+    {
+        _loadData();
+
+        while (true)
+        {
+            if (failedLoginAttempts >= 3)
+                break;
+            clsLogin::loginScreen();
+        }
+
+        // std::cout << "\n\nYou have been locked out of the system after 3 failed attempts.\n";
+    }
 };
 
 #endif // CLSBANKAPP_H
