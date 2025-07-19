@@ -65,7 +65,12 @@ Run the task `Build C++ Project (Debug)` to compile the project with debug symbo
 ## Usage
 
 1. Run the executable `output.exe`.
-2. Follow the on-screen instructions to log in and manage clients, transactions, and logs.
+2. For Admin Access, use the credentials:
+   - Username: `omaho`
+   - Password: `1234`
+3. For User Access, use the credentials:
+   - Username: `bobbrown`
+   - Password: `1234`
 
 ## Dependencies
 
